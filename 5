@@ -1,0 +1,73 @@
+/******************************************************************************
+Faça um algoritmo para obter dois conjuntos (vetores) A e B (ambos de tamanho n) e calcular o conjunto
+(vetor) C = A + B, sendo que cada elemento Ci = Ai + Bi, para i = 1, 2, ... , n. Apresentar no final os conjuntos
+A, B e C.
+Observação: dimensionar o tamanho dos vetores de maneira que n sempre seja menor ou igual ao
+tamanho do conjunto.
+Casos de teste:
+a) Para n (tamanho) igual a 5, A = [10 9 7 4 1] e B = [1 0 6 7 2], então C = [11 9 13 11 3];
+b) Para n (tamanho) igual a 3, A = [15 20 50] e B = [10 5 20], então C = [25 25 70]; 
+
+*******************************************************************************/
+#include <stdio.h>                    // Inclui biblioteca 
+
+int main() {
+    int n = 0, i = 0;                       // Declara variável n para tamanho e i para o laço
+
+    // Entrada de dados solicita ao usuário o tamanho dos vetores
+    printf("Digite o tamanho dos vetores (n): ");
+    scanf("%d", &n);                // Lê o valor digitado e armazena em n
+
+    int a[n], b[n], c[n];          // Declara três vetores inteiros de tamanho n: a, b e c
+
+    // Entrada de dados: solicita os elementos do vetor a
+    printf("Digite os elementos do vetor a:\n");
+    for (i = 0; i < n; i++) {      // Laço para ler todos os elementos do vetor a
+        printf("a[%d]: ", i);      // Solicita entrada do elemento i do vetor a
+        scanf("%d", &a[i]);        // Lê o elemento digitado e armazena em a[i]
+    }
+
+    // Entrada de dados: solicita os elementos do vetor b
+    printf("Digite os elementos do vetor b:\n");
+    for (i = 0; i < n; i++) {      // Laço para ler todos os elementos do vetor b
+        printf("b[%d]: ", i);      // Solicita entrada do elemento i do vetor b
+        scanf("%d", &b[i]);        // Lê o elemento digitado e armazena em b[i]
+    }
+
+    // Processamento calcula vetor c com a soma dos elementos correspondentes de a e b
+    for (i = 0; i < n; i++) {      // Laço para somar elemento a elemento
+        c[i] = a[i] + b[i];        // Soma a[i] + b[i] e armazena em c[i]
+    }
+
+    // Saída de dados exibe o vetor a formatado
+    printf("\nVetor a = [");
+    for (i = 0; i < n; i++) {      // Laço para imprimir os elementos do vetor a
+        printf("%d", a[i]);         // Imprime elemento a[i]
+        if (i < n - 1) {           // Se não for o último elemento, imprime espaço para separar
+            printf(" ");
+        }
+    }
+    printf("]\n");                 // Fecha o colchete e pula linha
+
+    // Saída de dados exibe o vetor b formatado
+    printf("Vetor b = [");
+    for (i = 0; i < n; i++) {      // Laço para imprimir os elementos do vetor b
+        printf("%d", b[i]);         // Imprime elemento b[i]
+        if (i < n - 1) {           // Se não for o último elemento, imprime espaço
+            printf(" ");
+        }
+    }
+    printf("]\n");                 // Fecha o colchete e pula linha
+
+    // Saída de dados exibe o vetor c formatado
+    printf("Vetor c = [");
+    for (i = 0; i < n; i++) {      // Laço para imprimir os elementos do vetor c
+        printf("%d", c[i]);         // Imprime elemento c[i]
+        if (i < n - 1) {           // Se não for o último elemento, imprime espaço
+            printf(" ");
+        }
+    }
+    printf("]\n");                 // Fecha o colchete e pula linha
+
+    return 0;                      // Indica que o programa terminou corretamente
+}
