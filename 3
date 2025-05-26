@@ -1,0 +1,45 @@
+/******************************************************************************
+Elabore um algoritmo para obter do usuário um conjunto de 10 valores, calcular e exibir a média dos
+valores informados, a quantidade de valores maiores que a média e a quantidade de valores menores que
+a média.
+
+Casos de teste:
+a) Para o conjunto 10, 15, 5, 1, 0, 45, 100, 25, 22 e 17, a média é 24, a quantidade de valores maiores que
+a média é 3 e a quantidade de valores menores que a média é 7; 
+
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main() {
+    int valores[10];
+    int i, maiorQueMedia = 0, menorQueMedia = 0;
+    float soma = 0, media;
+
+    // Leitura dos 10 valores
+    for (i = 0; i < 10; i++) {
+        printf("Digite o valor %d: ", i + 1);
+        scanf("%d", &valores[i]);
+        soma += valores[i]; // Acumula a soma
+    }
+
+    // Cálculo da média
+    media = soma / 10;
+
+    // Contagem dos valores maiores e menores que a média
+    for (i = 0; i < 10; i++) {
+        if (valores[i] > media) {
+            maiorQueMedia++;
+        } else if (valores[i] < media) {
+            menorQueMedia++;
+        }
+        // Se for igual à média, não conta em nenhum dos dois
+    }
+
+    // Exibição dos resultados
+    printf("\nA média dos valores é: %.2f\n", media);
+    printf("Quantidade de valores maiores que a média: %d\n", maiorQueMedia);
+    printf("Quantidade de valores menores que a média: %d\n", menorQueMedia);
+
+    return 0;
+}
