@@ -1,0 +1,41 @@
+/******************************************************************************
+Elabore um algoritmo para obter do usuário um conjunto de 20 elementos (números inteiros positivos),
+identificar o maior elemento e a sua respectiva posição no conjunto.
+Casos de teste:
+a) Para o conjunto 10, 15, 5, 7, 1, 45, 100, 25, 22, 17, 95, 35, 76, 81, 11, 4, 64, 20, 32 e 8, o maior elemento
+é o 100 na posição 7;
+b) Para o conjunto 25, 12, 51, 17, 11, 40, 10, 28, 85, 90, 80, 13, 15, 44, 19, 5, 70, 49, 30 e 77, o maior
+elemento é o 90 na posição 10;
+c) Para o conjunto 12, 10, 9, 70, 29, 4, 18, 27, 44, 9, 81, 75, 62, 74, 32, 15, 6, 30, 20 e 89, o maior elemento
+é o 89 na posição 20. 
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main() {
+    int conjunto[20];
+    int i, maior, posicao;
+
+    // Leitura dos 20 elementos
+    for(i = 0; i < 20; i++) {
+        printf("Digite o elemento %d: ", i + 1);
+        scanf("%d", &conjunto[i]);
+    }
+
+    // Inicializa o maior elemento e sua posição
+    maior = conjunto[0];
+    posicao = 1;  // posição começa em 1 para o usuário
+
+    // Percorre o vetor para encontrar o maior elemento
+    for(i = 1; i < 20; i++) {
+        if(conjunto[i] > maior) {
+            maior = conjunto[i];
+            posicao = i + 1; // posição para usuário
+        }
+    }
+
+    // Exibe o resultado
+    printf("O maior elemento é %d na posição %d.\n", maior, posicao);
+
+    return 0;
+}
