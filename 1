@@ -1,0 +1,67 @@
+/******************************************************************************
+
+Escreva um algoritmo para obter do usuário um conjunto de 10 elementos (números inteiros positivos) e
+depois solicitar um novo elemento (número inteiro positivo) e verificar se este pertence ao conjunto.
+Apresentar uma mensagem se o novo elemento pertence ao conjunto e outra mensagem caso contrário.
+Casos de teste (exemplo de uma provável entrada e saída de dados formatada):
+Entrada e saída de dados:
+Digite o elemento 1: 10
+Digite o elemento 2: 15
+Digite o elemento 3: 5
+Digite o elemento 4: 7
+Digite o elemento 5: 1
+Digite o elemento 6: 45
+Digite o elemento 7: 100
+Digite o elemento 8: 25
+Digite o elemento 9: 17
+Digite o elemento 10: 95
+Digite o elemento que será verificado no conjunto: 45
+Sim, o elemento 45 pertence ao conjunto na posição 6.
+Digite o elemento que será verificado no conjunto: 20
+Não, o elemento 20 não pertence ao conjunto.
+Digite o elemento que será verificado no conjunto: 5
+Sim, o elemento 5 pertence ao conjunto na posição 3.
+Digite o elemento que será verificado no conjunto: -1
+A verificação foi encerrada. 
+
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main() {
+    int conjunto[10];
+    int i=0, elemento=0, posicao=0, encontrado=0;
+
+    // Leitura dos 10 elementos
+    for(i = 0; i < 10; i++) {
+        printf("Digite o elemento %d: ", i + 1);
+        scanf("%d", &conjunto[i]);
+    }
+
+    while(1) {
+        printf("Digite o elemento que será verificado no conjunto: ");
+        scanf("%d", &elemento);
+
+        if(elemento == -1) {
+            printf("A verificação foi encerrada.\n");
+            break;
+        }
+
+        encontrado = 0; // flag para verificar se encontrou o elemento
+
+        for(i = 0; i < 10; i++) {
+            if(conjunto[i] == elemento) {
+                posicao = i + 1;  // Posição começa em 1 para o usuário
+                printf("Sim, o elemento %d pertence ao conjunto na posição %d.\n", elemento, posicao);
+                encontrado = 1;
+                break; // já encontrou, pode parar
+            }
+        }
+
+        if(!encontrado) {
+            printf("Não, o elemento %d não pertence ao conjunto.\n", elemento);
+        }
+    }
+
+    return 0;
+}
