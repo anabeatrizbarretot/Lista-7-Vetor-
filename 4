@@ -1,0 +1,30 @@
+/******************************************************************************
+Elabore um algoritmo para obter do usuário um conjunto de 10 elementos e apresentar os seus elementos
+na ordem inversa.
+Casos de teste:
+a) Para o conjunto 10, 15, 5, 7, 1, 45, 100, 25, 22 e 17, serão apresentados os seguintes elementos:
+17, 22, 25, 100, 45, 1, 7, 5, 15 e 10; 
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main() {
+    int elementos[10];
+    int i;
+
+    // Leitura dos 10 elementos
+    for (i = 0; i < 10; i++) {
+        printf("Digite o elemento %d: ", i + 1);
+        scanf("%d", &elementos[i]);
+    }
+
+    // Exibição dos elementos na ordem inversa
+    printf("\nElementos na ordem inversa:\n");
+    for (i = 9; i >= 0; i--) {
+        printf("%d ", elementos[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
