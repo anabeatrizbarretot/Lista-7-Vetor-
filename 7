@@ -1,0 +1,44 @@
+/******************************************************************************
+Faça um algoritmo para obter do usuário dois vetores v1 e v2 de 10 números inteiros cada, calcular e
+apresentar a quantidade de vezes que esses vetores possuem números iguais nas mesmas posições.
+Casos de teste:
+a) Para v1 = [10 5 50 15 25 30 12 1 45 20] e v2 = [5 5 50 15 20 30 12 1 10 25], a quantidade de
+números iguais mesmas posições é 5;
+b) Para v1 = [0 1 2 3 4 5 6 7 8 9] e v2 = [0 1 0 1 0 1 0 1 0 1], a quantidade de números iguais
+mesmas posições é 2;
+c) Para v1 = [10 20 30 30 20 10 20 30 40 50] e v2 = [10 20 30 20 20 30 20 30 40 50], a quantidade
+de números iguais mesmas posições é 8. 
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main() {
+    int v1[10], v2[10];
+    int i, iguais = 0;
+
+    // Entrada de dados para o vetor v1
+    printf("Digite 10 números inteiros para o vetor v1:\n");
+    for (i = 0; i < 10; i++) {
+        printf("v1[%d]: ", i);
+        scanf("%d", &v1[i]);
+    }
+
+    // Entrada de dados para o vetor v2
+    printf("Digite 10 números inteiros para o vetor v2:\n");
+    for (i = 0; i < 10; i++) {
+        printf("v2[%d]: ", i);
+        scanf("%d", &v2[i]);
+    }
+
+    // Comparação das posições dos vetores
+    for (i = 0; i < 10; i++) {
+        if (v1[i] == v2[i]) {
+            iguais++;
+        }
+    }
+
+    // Saída de dados
+    printf("A quantidade de números iguais nas mesmas posições é %d.\n", iguais);
+
+    return 0;
+}
