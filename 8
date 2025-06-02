@@ -1,0 +1,69 @@
+/******************************************************************************
+Elabore um algoritmo para realizar a concatenação de dois vetores de números reais, u e v, em um terceiro
+vetor, x. Como os vetores que serão concatenados podem ter qualquer número de elementos, o número
+de elementos dos vetores u e v deve ser solicitado para o usuário. O tamanho do vetor x é a soma do
+número de elementos de u e de v.
+Observação: dimensionar o tamanho dos vetores de maneira que n sempre seja menor ou igual ao
+tamanho do conjunto.
+Casos de teste:
+a) Para o vetor u = [1.0 2.0 3.0] e o vetor v = [2.0 1.0], o resultado da concatenação é o vetor x =
+[1.0 2.0 3.0 2.0 1.0].
+b) Para o vetor u = [5.0 1.0] e o vetor v = [3.0 1.0 0.0 7.0], o resultado da concatenação é o vetor
+x = [5.0 1.0 3.0 1.0 0.0 7.0].
+c) Para o vetor u = [1.0 2.0 3.0 4.0 5.0] e o vetor v = [6.0 7.0 8.0 9.0 10.0], o resultado da
+concatenação é o vetor x = [1.0 2.0 3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0]. 
+
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main() {
+    int n_u, n_v, i, j;
+    
+    // Solicitar o tamanho do vetor u
+    printf("Digite o número de elementos do vetor u: ");
+    scanf("%d", &n_u);
+    
+    // Solicitar o tamanho do vetor v
+    printf("Digite o número de elementos do vetor v: ");
+    scanf("%d", &n_v);
+    
+    // Declarar vetores com tamanhos máximos
+    float u[n_u], v[n_v], x[n_u + n_v];
+
+    // Entrada de dados para vetor u
+    printf("Digite os elementos do vetor u:\n");
+    for (i = 0; i < n_u; i++) {
+        printf("u[%d]: ", i);
+        scanf("%f", &u[i]);
+    }
+
+    // Entrada de dados para vetor v
+    printf("Digite os elementos do vetor v:\n");
+    for (i = 0; i < n_v; i++) {
+        printf("v[%d]: ", i);
+        scanf("%f", &v[i]);
+    }
+
+    // Concatenar vetor u em x
+    for (i = 0; i < n_u; i++) {
+        x[i] = u[i];
+    }
+
+    // Concatenar vetor v em x
+    for (j = 0; j < n_v; j++) {
+        x[n_u + j] = v[j];
+    }
+
+    // Exibir o vetor x
+    printf("O vetor concatenado x é: [");
+    for (i = 0; i < n_u + n_v; i++) {
+        printf("%.1f", x[i]);
+        if (i < n_u + n_v - 1) {
+            printf(" ");
+        }
+    }
+    printf("]\n");
+
+    return 0;
+}
