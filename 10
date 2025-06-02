@@ -1,0 +1,92 @@
+/******************************************************************************
+Na teoria dos conjuntos, a intersecção de dois conjuntos é formada pelos elementos que pertencem a
+ambos os conjuntos. Elabore um algoritmo para calcular a intersecção entre um conjunto A de n1
+caracteres e um conjunto B de n2 caracteres. Apresentar no final a seguinte sequência de saída de dados:
+o conjunto A, a mensagem “intersecção com”, o conjunto B, a mensagem “é igual a”, e o conjunto A
+interseção com B.
+Observação: O algoritmo deve considerar que o conjunto A ou o conjunto B seja um conjunto vazio, isto
+é, um conjunto que não possui nenhum elemento.
+Casos de teste:
+a) Para A = {2, 4, 6, 8, 10} e B = {1, 2, 3, 4, 5, 6}, a saída deve ser a seguinte:
+A = {2, 4, 6, 8, 10} intersecção com B = {1, 2, 3, 4, 5, 6} é igual a {2, 4, 6}
+b) Para A = {2, 4, 6, 8, 10} e B = {1, 2, 3, 4, 5, 6}, a saída deve ser a seguinte:
+A = { } intersecção com B = {1, 2, 3, 4, 5, 6} é igual a { }
+c) Para A = {2, 4, 6, 8, 10} e B = {1, 2, 3, 4, 5, 6}, a saída deve ser a seguinte:
+A = {2, 4, 6, 8, 10} intersecção com B = { } é igual a { }
+*******************************************************************************/
+#include <stdio.h>
+
+int main() {
+    int n1, n2, i, j, k = 0;
+    char A[100], B[100], interseccao[100];
+
+    // Entrada de dados para o conjunto A
+    printf("Digite o número de elementos do conjunto A: ");
+    scanf("%d", &n1);
+
+    for (i = 0; i < n1; i++) {
+        printf("A[%d]: ", i);
+        scanf(" %c", &A[i]);  // espaço antes de %c para ignorar '\n'
+    }
+
+    // Entrada de dados para o conjunto B
+    printf("Digite o número de elementos do conjunto B: ");
+    scanf("%d", &n2);
+
+    for (i = 0; i < n2; i++) {
+        printf("B[%d]: ", i);
+        scanf(" %c", &B[i]);  // espaço antes de %c
+    }
+
+    // Cálculo da interseção
+    for (i = 0; i < n1; i++) {
+        for (j = 0; j < n2; j++) {
+            if (A[i] == B[j]) {
+                // Verifica se já foi inserido na interseção para evitar repetição
+                int jaExiste = 0;
+                for (int l = 0; l < k; l++) {
+                    if (interseccao[l] == A[i]) {
+                        jaExiste = 1;
+                        break;
+                    }
+                }
+                if (!jaExiste) {
+                    interseccao[k] = A[i];
+                    k++;
+                }
+            }
+        }
+    }
+
+    // Impressão do conjunto A
+    printf("A = {");
+    for (i = 0; i < n1; i++) {
+        printf("%c", A[i]);
+        if (i < n1 - 1) {
+            printf(", ");
+        }
+    }
+    printf("} intersecção com ");
+
+    // Impressão do conjunto B
+    printf("B = {");
+    for (i = 0; i < n2; i++) {
+        printf("%c", B[i]);
+        if (i < n2 - 1) {
+            printf(", ");
+        }
+    }
+    printf("} é igual a ");
+
+    // Impressão da interseção
+    printf("{");
+    for (i = 0; i < k; i++) {
+        printf("%c", interseccao[i]);
+        if (i < k - 1) {
+            printf(", ");
+        }
+    }
+    printf("}\n");
+
+    return 0;
+}
