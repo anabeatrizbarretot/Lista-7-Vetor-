@@ -1,0 +1,70 @@
+/******************************************************************************
+Faça um algoritmo para obter do usuário um conjunto de 20 números inteiros, verificar se existem
+números repetidos e em quais posições.
+Casos de teste:
+a) Para o conjunto 5, 15, 5, 1, 1, 4, 10, 25, 22, 17, 12, 20, 30, 7, 9, 11, 4, 18, 10 e 20, o número 5 está
+repetido nas posições 1 e 3, o número 1 está repetido nas posições 4 e 5, o número 10 está repetido nas
+posições 7 e 10, e o número 20 está repetido nas posições 12 e 20;
+b) Para o conjunto 6, 15, 5, 1, 2, 4, 1, 25, 22, 17, 12, 1, 30, 7, 9, 1, 4, 18, 10 e 20, o número 1 está repetido
+nas posições 4, 7, 12 e 16;
+c) Para o conjunto 2, 10, 5, 1, 14, 4, 21, 25, 22, 17, 12, 28, 30, 7, 9, 11, 6, 18, 32 e 20, não existem números
+repetidos.
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main() {
+    int numeros[20];
+    int i, j, repetido;
+
+    // Entrada de dados
+    printf("Digite 20 números inteiros:\n");
+    for (i = 0; i < 20; i++) {
+        printf("Número %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+    }
+
+    // Verificação de números repetidos
+    printf("\nNúmeros repetidos e suas posições:\n");
+    int encontrou = 0;
+
+    for (i = 0; i < 20; i++) {
+        repetido = 0;
+        // Verifica se já verificamos esse número antes
+        for (j = 0; j < i; j++) {
+            if (numeros[i] == numeros[j]) {
+                repetido = 1;
+                break;
+            }
+        }
+
+        if (!repetido) {
+            int posicoes[20]; // Vetor para guardar posições
+            int count = 0;
+            for (j = i; j < 20; j++) {
+                if (numeros[i] == numeros[j]) {
+                    posicoes[count] = j + 1; // Guardar posições a partir de 1
+                    count++;
+                }
+            }
+
+            if (count > 1) {
+                encontrou = 1;
+                printf("O número %d está repetido nas posições: ", numeros[i]);
+                for (j = 0; j < count; j++) {
+                    printf("%d", posicoes[j]);
+                    if (j < count - 1) {
+                        printf(" e ");
+                    }
+                }
+                printf(".\n");
+            }
+        }
+    }
+
+    if (!encontrou) {
+        printf("Não existem números repetidos.\n");
+    }
+
+    return 0;
+}
